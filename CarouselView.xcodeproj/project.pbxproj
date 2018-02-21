@@ -7,17 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DC40E1C8203D9FAA00FFBE4D /* CarouselCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = DC40E1C6203D9FAA00FFBE4D /* CarouselCollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DC4F908D203DA2D90053D9C7 /* CarouselView.h in Headers */ = {isa = PBXBuildFile; fileRef = DC4F908B203DA2D90053D9C7 /* CarouselView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		DC40E1C3203D9FAA00FFBE4D /* CarouselCollectionView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CarouselCollectionView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC40E1C6203D9FAA00FFBE4D /* CarouselCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CarouselCollectionView.h; sourceTree = "<group>"; };
-		DC40E1C7203D9FAA00FFBE4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC4F9088203DA2D90053D9C7 /* CarouselView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CarouselView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC4F908B203DA2D90053D9C7 /* CarouselView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CarouselView.h; sourceTree = "<group>"; };
+		DC4F908C203DA2D90053D9C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		DC40E1BF203D9FAA00FFBE4D /* Frameworks */ = {
+		DC4F9084203DA2D90053D9C7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -27,97 +27,97 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		DC40E1B9203D9FAA00FFBE4D = {
+		DC4F907E203DA2D90053D9C7 = {
 			isa = PBXGroup;
 			children = (
-				DC40E1C5203D9FAA00FFBE4D /* CarouselCollectionView */,
-				DC40E1C4203D9FAA00FFBE4D /* Products */,
+				DC4F908A203DA2D90053D9C7 /* CarouselView */,
+				DC4F9089203DA2D90053D9C7 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		DC40E1C4203D9FAA00FFBE4D /* Products */ = {
+		DC4F9089203DA2D90053D9C7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DC40E1C3203D9FAA00FFBE4D /* CarouselCollectionView.framework */,
+				DC4F9088203DA2D90053D9C7 /* CarouselView.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DC40E1C5203D9FAA00FFBE4D /* CarouselCollectionView */ = {
+		DC4F908A203DA2D90053D9C7 /* CarouselView */ = {
 			isa = PBXGroup;
 			children = (
-				DC40E1C6203D9FAA00FFBE4D /* CarouselCollectionView.h */,
-				DC40E1C7203D9FAA00FFBE4D /* Info.plist */,
+				DC4F908B203DA2D90053D9C7 /* CarouselView.h */,
+				DC4F908C203DA2D90053D9C7 /* Info.plist */,
 			);
-			path = CarouselCollectionView;
+			path = CarouselView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		DC40E1C0203D9FAA00FFBE4D /* Headers */ = {
+		DC4F9085203DA2D90053D9C7 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC40E1C8203D9FAA00FFBE4D /* CarouselCollectionView.h in Headers */,
+				DC4F908D203DA2D90053D9C7 /* CarouselView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		DC40E1C2203D9FAA00FFBE4D /* CarouselCollectionView */ = {
+		DC4F9087203DA2D90053D9C7 /* CarouselView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DC40E1CB203D9FAA00FFBE4D /* Build configuration list for PBXNativeTarget "CarouselCollectionView" */;
+			buildConfigurationList = DC4F9090203DA2D90053D9C7 /* Build configuration list for PBXNativeTarget "CarouselView" */;
 			buildPhases = (
-				DC40E1BE203D9FAA00FFBE4D /* Sources */,
-				DC40E1BF203D9FAA00FFBE4D /* Frameworks */,
-				DC40E1C0203D9FAA00FFBE4D /* Headers */,
-				DC40E1C1203D9FAA00FFBE4D /* Resources */,
+				DC4F9083203DA2D90053D9C7 /* Sources */,
+				DC4F9084203DA2D90053D9C7 /* Frameworks */,
+				DC4F9085203DA2D90053D9C7 /* Headers */,
+				DC4F9086203DA2D90053D9C7 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = CarouselCollectionView;
-			productName = CarouselCollectionView;
-			productReference = DC40E1C3203D9FAA00FFBE4D /* CarouselCollectionView.framework */;
+			name = CarouselView;
+			productName = CarouselView;
+			productReference = DC4F9088203DA2D90053D9C7 /* CarouselView.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		DC40E1BA203D9FAA00FFBE4D /* Project object */ = {
+		DC4F907F203DA2D90053D9C7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = 4All;
 				TargetAttributes = {
-					DC40E1C2203D9FAA00FFBE4D = {
+					DC4F9087203DA2D90053D9C7 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = DC40E1BD203D9FAA00FFBE4D /* Build configuration list for PBXProject "CarouselCollectionView" */;
+			buildConfigurationList = DC4F9082203DA2D90053D9C7 /* Build configuration list for PBXProject "CarouselView" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = DC40E1B9203D9FAA00FFBE4D;
-			productRefGroup = DC40E1C4203D9FAA00FFBE4D /* Products */;
+			mainGroup = DC4F907E203DA2D90053D9C7;
+			productRefGroup = DC4F9089203DA2D90053D9C7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DC40E1C2203D9FAA00FFBE4D /* CarouselCollectionView */,
+				DC4F9087203DA2D90053D9C7 /* CarouselView */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		DC40E1C1203D9FAA00FFBE4D /* Resources */ = {
+		DC4F9086203DA2D90053D9C7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -127,7 +127,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		DC40E1BE203D9FAA00FFBE4D /* Sources */ = {
+		DC4F9083203DA2D90053D9C7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -137,7 +137,7 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		DC40E1C9203D9FAA00FFBE4D /* Debug */ = {
+		DC4F908E203DA2D90053D9C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -197,7 +197,7 @@
 			};
 			name = Debug;
 		};
-		DC40E1CA203D9FAA00FFBE4D /* Release */ = {
+		DC4F908F203DA2D90053D9C7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -250,7 +250,7 @@
 			};
 			name = Release;
 		};
-		DC40E1CC203D9FAA00FFBE4D /* Debug */ = {
+		DC4F9091203DA2D90053D9C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
@@ -260,10 +260,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = CarouselCollectionView/Info.plist;
+				INFOPLIST_FILE = CarouselView/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.fourall.CarouselCollectionView;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fourall.CarouselView;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -271,7 +271,7 @@
 			};
 			name = Debug;
 		};
-		DC40E1CD203D9FAA00FFBE4D /* Release */ = {
+		DC4F9092203DA2D90053D9C7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
@@ -281,10 +281,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = CarouselCollectionView/Info.plist;
+				INFOPLIST_FILE = CarouselView/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.fourall.CarouselCollectionView;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fourall.CarouselView;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -295,25 +295,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DC40E1BD203D9FAA00FFBE4D /* Build configuration list for PBXProject "CarouselCollectionView" */ = {
+		DC4F9082203DA2D90053D9C7 /* Build configuration list for PBXProject "CarouselView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DC40E1C9203D9FAA00FFBE4D /* Debug */,
-				DC40E1CA203D9FAA00FFBE4D /* Release */,
+				DC4F908E203DA2D90053D9C7 /* Debug */,
+				DC4F908F203DA2D90053D9C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DC40E1CB203D9FAA00FFBE4D /* Build configuration list for PBXNativeTarget "CarouselCollectionView" */ = {
+		DC4F9090203DA2D90053D9C7 /* Build configuration list for PBXNativeTarget "CarouselView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DC40E1CC203D9FAA00FFBE4D /* Debug */,
-				DC40E1CD203D9FAA00FFBE4D /* Release */,
+				DC4F9091203DA2D90053D9C7 /* Debug */,
+				DC4F9092203DA2D90053D9C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = DC40E1BA203D9FAA00FFBE4D /* Project object */;
+	rootObject = DC4F907F203DA2D90053D9C7 /* Project object */;
 }
