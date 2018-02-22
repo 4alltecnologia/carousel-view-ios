@@ -36,7 +36,7 @@ extension ViewController: CarouselViewDelegate {
     }
     
     func cellSize() -> CGSize {
-        return CGSize(width: 270, height: 270)
+        return CGSize(width: 210, height: 300)
     }
     
     func registerCells(_ collectionView: UICollectionView) {
@@ -47,4 +47,3 @@ extension ViewController: CarouselViewDelegate {
         return 10
     }
 }
-

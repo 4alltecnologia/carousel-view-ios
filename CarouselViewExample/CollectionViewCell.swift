@@ -10,7 +10,6 @@ import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
 
-    
     @IBOutlet weak var imageView: UIImageView! {
         didSet {
             imageView.layer.cornerRadius = 130/2
@@ -19,8 +18,6 @@ class CollectionViewCell: UICollectionViewCell {
     }
     
     @IBOutlet weak var rowLabel: UILabel!
-    
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()

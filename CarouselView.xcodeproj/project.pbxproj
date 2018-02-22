@@ -15,7 +15,6 @@
 		DC4F90A5203DB1870053D9C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC4F90A3203DB1870053D9C7 /* Main.storyboard */; };
 		DC4F90A7203DB1870053D9C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC4F90A6203DB1870053D9C7 /* Assets.xcassets */; };
 		DC4F90AA203DB1870053D9C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC4F90A8203DB1870053D9C7 /* LaunchScreen.storyboard */; };
-		DC4F90B5203DB1870053D9C7 /* CarouselViewExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4F90B4203DB1870053D9C7 /* CarouselViewExampleTests.swift */; };
 		DC4F90BD203DB1F00053D9C7 /* CarouselView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC4F9088203DA2D90053D9C7 /* CarouselView.framework */; };
 		DC4F90BE203DB1F00053D9C7 /* CarouselView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DC4F9088203DA2D90053D9C7 /* CarouselView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DC4F90C4203DB2EC0053D9C7 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4F90C2203DB2EC0053D9C7 /* CollectionViewCell.swift */; };
@@ -25,13 +24,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		DC4F90B1203DB1870053D9C7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DC4F907F203DA2D90053D9C7 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DC4F909C203DB1860053D9C7;
-			remoteInfo = CarouselViewExample;
-		};
 		DC4F90BF203DB1F00053D9C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DC4F907F203DA2D90053D9C7 /* Project object */;
@@ -68,9 +60,6 @@
 		DC4F90A6203DB1870053D9C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC4F90A9203DB1870053D9C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC4F90AB203DB1870053D9C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DC4F90B0203DB1870053D9C7 /* CarouselViewExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarouselViewExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC4F90B4203DB1870053D9C7 /* CarouselViewExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselViewExampleTests.swift; sourceTree = "<group>"; };
-		DC4F90B6203DB1870053D9C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC4F90C2203DB2EC0053D9C7 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		DC4F90C3203DB2EC0053D9C7 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		DC4F90C6203DFFEE0053D9C7 /* CarouselViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselViewDelegate.swift; sourceTree = "<group>"; };
@@ -93,13 +82,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DC4F90AD203DB1870053D9C7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -108,7 +90,6 @@
 			children = (
 				DC4F908A203DA2D90053D9C7 /* CarouselView */,
 				DC4F909E203DB1870053D9C7 /* CarouselViewExample */,
-				DC4F90B3203DB1870053D9C7 /* CarouselViewExampleTests */,
 				DC4F9089203DA2D90053D9C7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -118,7 +99,6 @@
 			children = (
 				DC4F9088203DA2D90053D9C7 /* CarouselView.framework */,
 				DC4F909D203DB1860053D9C7 /* CarouselViewExample.app */,
-				DC4F90B0203DB1870053D9C7 /* CarouselViewExampleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -149,15 +129,6 @@
 				DC4F90C3203DB2EC0053D9C7 /* CollectionViewCell.xib */,
 			);
 			path = CarouselViewExample;
-			sourceTree = "<group>";
-		};
-		DC4F90B3203DB1870053D9C7 /* CarouselViewExampleTests */ = {
-			isa = PBXGroup;
-			children = (
-				DC4F90B4203DB1870053D9C7 /* CarouselViewExampleTests.swift */,
-				DC4F90B6203DB1870053D9C7 /* Info.plist */,
-			);
-			path = CarouselViewExampleTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,24 +182,6 @@
 			productReference = DC4F909D203DB1860053D9C7 /* CarouselViewExample.app */;
 			productType = "com.apple.product-type.application";
 		};
-		DC4F90AF203DB1870053D9C7 /* CarouselViewExampleTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DC4F90BA203DB1870053D9C7 /* Build configuration list for PBXNativeTarget "CarouselViewExampleTests" */;
-			buildPhases = (
-				DC4F90AC203DB1870053D9C7 /* Sources */,
-				DC4F90AD203DB1870053D9C7 /* Frameworks */,
-				DC4F90AE203DB1870053D9C7 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DC4F90B2203DB1870053D9C7 /* PBXTargetDependency */,
-			);
-			name = CarouselViewExampleTests;
-			productName = CarouselViewExampleTests;
-			productReference = DC4F90B0203DB1870053D9C7 /* CarouselViewExampleTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -248,11 +201,6 @@
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
-					DC4F90AF203DB1870053D9C7 = {
-						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
-						TestTargetID = DC4F909C203DB1860053D9C7;
-					};
 				};
 			};
 			buildConfigurationList = DC4F9082203DA2D90053D9C7 /* Build configuration list for PBXProject "CarouselView" */;
@@ -270,7 +218,6 @@
 			targets = (
 				DC4F9087203DA2D90053D9C7 /* CarouselView */,
 				DC4F909C203DB1860053D9C7 /* CarouselViewExample */,
-				DC4F90AF203DB1870053D9C7 /* CarouselViewExampleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -292,13 +239,6 @@
 				DC4F90A7203DB1870053D9C7 /* Assets.xcassets in Resources */,
 				DC4F90C5203DB2EC0053D9C7 /* CollectionViewCell.xib in Resources */,
 				DC4F90A5203DB1870053D9C7 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DC4F90AE203DB1870053D9C7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,22 +265,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DC4F90AC203DB1870053D9C7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DC4F90B5203DB1870053D9C7 /* CarouselViewExampleTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		DC4F90B2203DB1870053D9C7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DC4F909C203DB1860053D9C7 /* CarouselViewExample */;
-			targetProxy = DC4F90B1203DB1870053D9C7 /* PBXContainerItemProxy */;
-		};
 		DC4F90C0203DB1F00053D9C7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = DC4F9087203DA2D90053D9C7 /* CarouselView */;
@@ -560,40 +487,6 @@
 			};
 			name = Release;
 		};
-		DC4F90BB203DB1870053D9C7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B4P3V9KUXN;
-				INFOPLIST_FILE = CarouselViewExampleTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.fourall.CarouselViewExampleTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CarouselViewExample.app/CarouselViewExample";
-			};
-			name = Debug;
-		};
-		DC4F90BC203DB1870053D9C7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B4P3V9KUXN;
-				INFOPLIST_FILE = CarouselViewExampleTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.fourall.CarouselViewExampleTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CarouselViewExample.app/CarouselViewExample";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -620,15 +513,6 @@
 			buildConfigurations = (
 				DC4F90B8203DB1870053D9C7 /* Debug */,
 				DC4F90B9203DB1870053D9C7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DC4F90BA203DB1870053D9C7 /* Build configuration list for PBXNativeTarget "CarouselViewExampleTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DC4F90BB203DB1870053D9C7 /* Debug */,
-				DC4F90BC203DB1870053D9C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
