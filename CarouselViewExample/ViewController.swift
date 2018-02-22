@@ -14,13 +14,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var carouselView: CarouselView! {
         didSet {
             carouselView.delegate = self
+            carouselView.backgroundColor = UIColor.clear
         }
     }
     
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        carouselView.viewDidAppear()
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        carouselView.viewDidLayoutSubviews(true)
     }
 
 }
@@ -36,20 +36,23 @@ extension ViewController: CarouselViewDelegate {
     }
     
     func cellSize() -> CGSize {
-        return CGSize(width: 210, height: 300.0)
+        return CGSize(width: 210, height: 300)
     }
     
     func registerCells(_ collectionView: UICollectionView) {
         collectionView.register(UINib(nibName: "CollectionViewCell", bundle: Bundle.main), forCellWithReuseIdentifier: "mycell")
     }
     
-    func configurePageControl(_ pageControl: UIPageControl) {
-        pageControl.currentPageIndicatorTintColor = UIColor.green
-        pageControl.pageIndicatorTintColor = UIColor.green.withAlphaComponent(0.2)
+    func numberOfItems() -> Int {
+        return 10
     }
     
-    func numberOfItems() -> Int {
-        return 0
+    func infiniteCells() -> Bool {
+        return true
+    }
+    
+    func firstCell() -> Int {
+        return 4
     }
 }
 

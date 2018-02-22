@@ -8,47 +8,14 @@
 
 import UIKit
 
-@objc public protocol CarouselViewDelegate {
-    
-    /**
-     Defines the number of rows which will be presented on Carousel View.
-     
-     - returns: The number of rows.
-     */
-    func numberOfItems() -> Int
-    
-    /**
-     This function will call the equivalent function of UICollectionView. Use it as if you were using a collection view.
-     
-     - parameter collectionView: The collection view requesting this information.
-     - parameter indexPath: The index path that specifies the location of the item.
-     
-     - returns: A configured cell object. You must not return nil from this method.
-     */
-    func carouselView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
-    
-    
-    @objc optional func carouselView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
-    func cellSize() -> CGSize
-    func registerCells(_ collectionView: UICollectionView)
-    func configurePageControl(_ pageControl: UIPageControl)
-    @objc optional func infiniteCells() -> Bool
-    @objc optional func firstCell() -> Int
-}
-
 public class CarouselView: UIView {
     
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
             collectionView.delegate = self
             collectionView.dataSource = self
-            let layout = CenterCellCollectionViewFlowLayout()
-            layout.itemSize = delegate?.cellSize() ?? CGSize(width: 210, height: 300)
-            layout.scrollDirection = .horizontal
             collectionView.showsHorizontalScrollIndicator = false
-            collectionView.collectionViewLayout = layout
             collectionView.decelerationRate = UIScrollViewDecelerationRateFast
-            collectionView.contentInset = UIEdgeInsetsMake(0, self.frame.width/4, 0, self.frame.width/4)
             collectionView.backgroundColor = UIColor.clear
         }
     }
@@ -60,9 +27,17 @@ public class CarouselView: UIView {
     }
     
     var viewContent: UIView!
+    
+    /**
+     The object that acts as the delegate of the carousel view.
+     
+     The delegate must adopt the CarouselViewDelegate protocol. The carousel view maintains a weak reference to the delegate object.
+     */
     public var delegate: CarouselViewDelegate?
+    
     var isInfinite = false
     let infiniteSize = 10000000
+    var initialScrollDone = false
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -79,7 +54,7 @@ public class CarouselView: UIView {
         let nib = UINib(nibName: "CarouselView", bundle: bundle)
         self.viewContent = nib.instantiate(withOwner: self, options: nil).first as! UIView
         self.viewContent.clipsToBounds = true
-        self.collectionView.backgroundColor = UIColor.clear
+        self.viewContent.backgroundColor = UIColor.clear
         viewContent.frame = self.bounds
         viewContent.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         addSubview(viewContent)
@@ -87,22 +62,41 @@ public class CarouselView: UIView {
     
     override public func awakeFromNib() {
         super.awakeFromNib()
+        
         delegate?.registerCells(collectionView)
+        let layout = CenterCellCollectionViewFlowLayout()
+        layout.itemSize = delegate?.cellSize() ?? CGSize(width: 210, height: 300)
+        layout.scrollDirection = .horizontal
+        collectionView.collectionViewLayout = layout
+        collectionView.contentInset = UIEdgeInsetsMake(0, self.frame.width/4, 0, self.frame.width/4)
+        
         pageControl.numberOfPages = delegate?.numberOfItems() ?? 0
-        delegate?.configurePageControl(pageControl)
+        pageControl.currentPageIndicatorTintColor = delegate?.currentPageControlIndicatorTintColor?() ?? UIColor.darkGray
+        pageControl.pageIndicatorTintColor = delegate?.pageControlIndicatorTintColor?() ?? UIColor.lightGray
+        
         self.isInfinite = delegate?.infiniteCells?() ?? false
     }
     
-    public func viewDidAppear() {
+    /**
+     This function must be called within your view controller's viewDidLayoutSubviews function.
+     
+     - parameter animated: It will animate the scrolling to first cell if carousel is finite.
+     */
+    public func viewDidLayoutSubviews(_ animated: Bool) {
+        if initialScrollDone { return }
         if isInfinite {
-            let midIndexPath = IndexPath(row: infiniteSize / 2, section: 0)
+            initialScrollDone = true
+            collectionView.layoutIfNeeded()
+            var midIndexPath = IndexPath(row: infiniteSize / 2, section: 0)
             collectionView.scrollToItem(at: midIndexPath, at: .centeredHorizontally, animated: false)
             pageControl.currentPage = 0
         } else {
+            initialScrollDone = true
             if let numOfItems = delegate?.numberOfItems(), numOfItems > 0 {
                 let firstCell = delegate?.firstCell?() ?? 0
                 let indexPath = IndexPath(row: (firstCell < numOfItems ? firstCell : 0), section: 0)
-                collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
+                collectionView.layoutIfNeeded()
+                collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: animated)
                 pageControl.currentPage = indexPath.row
             }
         }
@@ -117,7 +111,7 @@ extension CarouselView: UICollectionViewDelegate {
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if let collectionView = scrollView as? UICollectionView {
             let cells = collectionView.visibleCells
-            let centerX = Float(collectionView.center.x)
+            let centerX = Float(self.center.x)
             
             for cell in cells {
                 var pos = cell.convert(CGPoint.zero, to: self)
@@ -141,7 +135,7 @@ extension CarouselView: UICollectionViewDelegate {
                 })
             }
         } else {
-            let pageWidth = delegate?.cellSize().width ?? 210.0
+            let pageWidth = delegate?.cellSize().width ?? 0.0
             let currentPage = Int((scrollView.contentOffset.x + pageWidth / 2) / pageWidth)
             self.pageControl.currentPage = currentPage
         }
