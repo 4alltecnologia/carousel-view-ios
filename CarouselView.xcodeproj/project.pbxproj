@@ -10,7 +10,6 @@
 		DC4F908D203DA2D90053D9C7 /* CarouselView.h in Headers */ = {isa = PBXBuildFile; fileRef = DC4F908B203DA2D90053D9C7 /* CarouselView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC4F9094203DA3260053D9C7 /* CarouselView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC4F9093203DA3260053D9C7 /* CarouselView.xib */; };
 		DC4F9096203DA5530053D9C7 /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4F9095203DA5530053D9C7 /* CarouselView.swift */; };
-		DC4F9098203DAE180053D9C7 /* CenterCellCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4F9097203DAE180053D9C7 /* CenterCellCollectionViewFlowLayout.swift */; };
 		DC4F90A0203DB1870053D9C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4F909F203DB1870053D9C7 /* AppDelegate.swift */; };
 		DC4F90A2203DB1870053D9C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4F90A1203DB1870053D9C7 /* ViewController.swift */; };
 		DC4F90A5203DB1870053D9C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC4F90A3203DB1870053D9C7 /* Main.storyboard */; };
@@ -22,6 +21,7 @@
 		DC4F90C4203DB2EC0053D9C7 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4F90C2203DB2EC0053D9C7 /* CollectionViewCell.swift */; };
 		DC4F90C5203DB2EC0053D9C7 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC4F90C3203DB2EC0053D9C7 /* CollectionViewCell.xib */; };
 		DC4F90C7203DFFEE0053D9C7 /* CarouselViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4F90C6203DFFEE0053D9C7 /* CarouselViewDelegate.swift */; };
+		DCD8FE87203EF2D00050B814 /* UPCarouselFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD8FE86203EF2CF0050B814 /* UPCarouselFlowLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +61,6 @@
 		DC4F908C203DA2D90053D9C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC4F9093203DA3260053D9C7 /* CarouselView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarouselView.xib; sourceTree = "<group>"; };
 		DC4F9095203DA5530053D9C7 /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
-		DC4F9097203DAE180053D9C7 /* CenterCellCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterCellCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		DC4F909D203DB1860053D9C7 /* CarouselViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarouselViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC4F909F203DB1870053D9C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC4F90A1203DB1870053D9C7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +74,7 @@
 		DC4F90C2203DB2EC0053D9C7 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		DC4F90C3203DB2EC0053D9C7 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		DC4F90C6203DFFEE0053D9C7 /* CarouselViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselViewDelegate.swift; sourceTree = "<group>"; };
+		DCD8FE86203EF2CF0050B814 /* UPCarouselFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UPCarouselFlowLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,7 +130,7 @@
 				DC4F908C203DA2D90053D9C7 /* Info.plist */,
 				DC4F9093203DA3260053D9C7 /* CarouselView.xib */,
 				DC4F9095203DA5530053D9C7 /* CarouselView.swift */,
-				DC4F9097203DAE180053D9C7 /* CenterCellCollectionViewFlowLayout.swift */,
+				DCD8FE86203EF2CF0050B814 /* UPCarouselFlowLayout.swift */,
 				DC4F90C6203DFFEE0053D9C7 /* CarouselViewDelegate.swift */,
 			);
 			path = CarouselView;
@@ -311,7 +311,7 @@
 			files = (
 				DC4F90C7203DFFEE0053D9C7 /* CarouselViewDelegate.swift in Sources */,
 				DC4F9096203DA5530053D9C7 /* CarouselView.swift in Sources */,
-				DC4F9098203DAE180053D9C7 /* CenterCellCollectionViewFlowLayout.swift in Sources */,
+				DCD8FE87203EF2D00050B814 /* UPCarouselFlowLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

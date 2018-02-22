@@ -15,7 +15,6 @@ public class CarouselView: UIView {
             collectionView.delegate = self
             collectionView.dataSource = self
             collectionView.showsHorizontalScrollIndicator = false
-            collectionView.decelerationRate = UIScrollViewDecelerationRateFast
             collectionView.backgroundColor = UIColor.clear
         }
     }
@@ -26,18 +25,26 @@ public class CarouselView: UIView {
         }
     }
     
-    var viewContent: UIView!
-    
     /**
      The object that acts as the delegate of the carousel view.
      
      The delegate must adopt the CarouselViewDelegate protocol. The carousel view maintains a weak reference to the delegate object.
      */
     public var delegate: CarouselViewDelegate?
-    
     var isInfinite = false
     let infiniteSize = 10000000
     var initialScrollDone = false
+    var viewContent: UIView!
+    fileprivate var pageSize: CGSize {
+        let layout = self.collectionView.collectionViewLayout as! UPCarouselFlowLayout
+        var pageSize = layout.itemSize
+        if layout.scrollDirection == .horizontal {
+            pageSize.width += layout.minimumLineSpacing
+        } else {
+            pageSize.height += layout.minimumLineSpacing
+        }
+        return pageSize
+    }
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -64,11 +71,12 @@ public class CarouselView: UIView {
         super.awakeFromNib()
         
         delegate?.registerCells(collectionView)
-        let layout = CenterCellCollectionViewFlowLayout()
-        layout.itemSize = delegate?.cellSize() ?? CGSize(width: 210, height: 300)
+        let layout = UPCarouselFlowLayout()
+        layout.sideItemAlpha = 1.0
         layout.scrollDirection = .horizontal
+        layout.spacingMode = UPCarouselFlowLayoutSpacingMode.overlap(visibleOffset: 40)
+        layout.itemSize = delegate?.cellSize() ?? CGSize(width: 210, height: 300)
         collectionView.collectionViewLayout = layout
-        collectionView.contentInset = UIEdgeInsetsMake(0, self.frame.width/4, 0, self.frame.width/4)
         
         pageControl.numberOfPages = delegate?.numberOfItems() ?? 0
         pageControl.currentPageIndicatorTintColor = delegate?.currentPageControlIndicatorTintColor?() ?? UIColor.darkGray
@@ -85,13 +93,11 @@ public class CarouselView: UIView {
     public func viewDidLayoutSubviews(_ animated: Bool) {
         if initialScrollDone { return }
         if isInfinite {
-            initialScrollDone = true
             collectionView.layoutIfNeeded()
-            var midIndexPath = IndexPath(row: infiniteSize / 2, section: 0)
+            let midIndexPath = IndexPath(row: infiniteSize / 2, section: 0)
             collectionView.scrollToItem(at: midIndexPath, at: .centeredHorizontally, animated: false)
             pageControl.currentPage = 0
         } else {
-            initialScrollDone = true
             if let numOfItems = delegate?.numberOfItems(), numOfItems > 0 {
                 let firstCell = delegate?.firstCell?() ?? 0
                 let indexPath = IndexPath(row: (firstCell < numOfItems ? firstCell : 0), section: 0)
@@ -100,6 +106,11 @@ public class CarouselView: UIView {
                 pageControl.currentPage = indexPath.row
             }
         }
+        initialScrollDone = true
+    }
+    
+    public func reloadData() {
+        collectionView.reloadData()
     }
 }
 
@@ -108,22 +119,6 @@ extension CarouselView: UICollectionViewDelegate {
         delegate?.carouselView?(collectionView, didSelectItemAt: indexPath)
     }
     
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if let collectionView = scrollView as? UICollectionView {
-            let cells = collectionView.visibleCells
-            let centerX = Float(self.center.x)
-            
-            for cell in cells {
-                var pos = cell.convert(CGPoint.zero, to: self)
-                pos.x += cell.frame.size.width/2
-                
-                let distance = fabsf(centerX - Float(pos.x))
-                let scale = 1 - (distance/centerX)*0.15
-                
-                cell.transform = CGAffineTransform(scaleX: CGFloat(scale) , y: CGFloat(scale))
-            }
-        }
-    }
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if isInfinite {
             if let collectionView = scrollView as? UICollectionView {
@@ -135,9 +130,10 @@ extension CarouselView: UICollectionViewDelegate {
                 })
             }
         } else {
-            let pageWidth = delegate?.cellSize().width ?? 0.0
-            let currentPage = Int((scrollView.contentOffset.x + pageWidth / 2) / pageWidth)
-            self.pageControl.currentPage = currentPage
+            let layout = self.collectionView.collectionViewLayout as! UPCarouselFlowLayout
+            let pageSide = (layout.scrollDirection == .horizontal) ? self.pageSize.width : self.pageSize.height
+            let offset = (layout.scrollDirection == .horizontal) ? scrollView.contentOffset.x : scrollView.contentOffset.y
+            self.pageControl.currentPage = Int(floor((offset - pageSide / 2) / pageSide) + 1)
         }
     }
 }

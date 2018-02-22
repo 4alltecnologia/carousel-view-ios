@@ -36,7 +36,7 @@ extension ViewController: CarouselViewDelegate {
     }
     
     func cellSize() -> CGSize {
-        return CGSize(width: 210, height: 300)
+        return CGSize(width: 270, height: 270)
     }
     
     func registerCells(_ collectionView: UICollectionView) {
@@ -45,14 +45,6 @@ extension ViewController: CarouselViewDelegate {
     
     func numberOfItems() -> Int {
         return 10
-    }
-    
-    func infiniteCells() -> Bool {
-        return true
-    }
-    
-    func firstCell() -> Int {
-        return 4
     }
 }
 
