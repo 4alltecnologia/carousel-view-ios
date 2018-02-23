@@ -16,6 +16,7 @@ public class CarouselView: UIView {
             collectionView.dataSource = self
             collectionView.showsHorizontalScrollIndicator = false
             collectionView.backgroundColor = UIColor.clear
+            collectionView.clipsToBounds = false
         }
     }
     
@@ -79,7 +80,6 @@ public class CarouselView: UIView {
         layout.itemSize = delegate?.cellSize() ?? CGSize(width: 210, height: 300)
         collectionView.collectionViewLayout = layout
         
-        pageControl.numberOfPages = delegate?.numberOfItems() ?? 0
         pageControl.currentPageIndicatorTintColor = delegate?.currentPageControlIndicatorTintColor?() ?? UIColor.darkGray
         pageControl.pageIndicatorTintColor = delegate?.pageControlIndicatorTintColor?() ?? UIColor.lightGray
         
@@ -87,12 +87,18 @@ public class CarouselView: UIView {
     }
     
     /**
-     This function must be called within your view controller's viewDidLayoutSubviews function.
+     This function must be called when all data that will be presented on carousel is loaded.
      
      - parameter animated: It will animate the scrolling to first cell if carousel is finite.
      */
-    public func viewDidLayoutSubviews(_ animated: Bool) {
+    public func carouselSetup(_ animated: Bool) {
         if !isInitialScroll { return }
+        pageControl.numberOfPages = delegate?.numberOfItems() ?? 0
+        scrollToItem(animated)
+        isInitialScroll = false
+    }
+    
+    func scrollToItem(_ animated: Bool) {
         if isInfinite {
             collectionView.layoutIfNeeded()
             let midIndexPath = IndexPath(row: infiniteSize / 2, section: 0)
@@ -107,7 +113,14 @@ public class CarouselView: UIView {
                 pageControl.currentPage = indexPath.row
             }
         }
-        isInitialScroll = false
+    }
+    
+    func getCurrentPage() -> Int {
+        guard let layout = self.collectionView.collectionViewLayout as? UPCarouselFlowLayout else { return 0 }
+        let pageSide = (layout.scrollDirection == .horizontal) ? self.pageSize.width : self.pageSize.height
+        let offset = (layout.scrollDirection == .horizontal) ? collectionView.contentOffset.x : collectionView.contentOffset.y
+        
+        return Int(floor((offset - pageSide / 2) / pageSide) + 1)
     }
     
     public func reloadData() {
@@ -117,7 +130,9 @@ public class CarouselView: UIView {
 
 extension CarouselView: UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.carouselView?(collectionView, didSelectItemAt: indexPath)
+        let index = IndexPath(row: indexPath.row % (delegate?.numberOfItems() ?? 0), section: 0)
+        if index.row != self.getCurrentPage() { return }
+        delegate?.carouselView?(collectionView, didSelectItemAt: index)
     }
     
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
@@ -132,10 +147,7 @@ extension CarouselView: UICollectionViewDelegate {
                 })
             }
         } else {
-            guard let layout = self.collectionView.collectionViewLayout as? UPCarouselFlowLayout else { return }
-            let pageSide = (layout.scrollDirection == .horizontal) ? self.pageSize.width : self.pageSize.height
-            let offset = (layout.scrollDirection == .horizontal) ? scrollView.contentOffset.x : scrollView.contentOffset.y
-            self.pageControl.currentPage = Int(floor((offset - pageSide / 2) / pageSide) + 1)
+            self.pageControl.currentPage = self.getCurrentPage()
         }
     }
 }

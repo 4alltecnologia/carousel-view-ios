@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        carouselView.viewDidLayoutSubviews(true)
+        carouselView.carouselSetup(true)
     }
 
 }
@@ -45,5 +45,9 @@ extension ViewController: CarouselViewDelegate {
     
     func numberOfItems() -> Int {
         return 10
+    }
+    
+    func carouselView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Nothing to select at indexPath: \(indexPath.row)")
     }
 }
