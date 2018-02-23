@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        carouselView.viewDidLayoutSubviews(true)
+        carouselView.carouselSetup(true)
     }
 
 }
