@@ -44,8 +44,10 @@
             <constraints>
                 <constraint firstItem="VTh-Hy-fye" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="1rL-Jw-NcJ"/>
                 <constraint firstItem="Tc6-51-9oo" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="9lP-dT-dSz"/>
+                <constraint firstItem="Tc6-51-9oo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="OSd-lR-sSY"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Tc6-51-9oo" secondAttribute="bottom" id="Uvw-ud-Jqf"/>
                 <constraint firstItem="Tc6-51-9oo" firstAttribute="top" secondItem="VTh-Hy-fye" secondAttribute="bottom" id="WHg-iA-ddD"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Tc6-51-9oo" secondAttribute="trailing" constant="10" id="jQp-Yf-sAr"/>
                 <constraint firstItem="VTh-Hy-fye" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="37" id="qgo-Pg-q0j"/>
                 <constraint firstItem="VTh-Hy-fye" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="sWF-Ww-3qe"/>
             </constraints>
