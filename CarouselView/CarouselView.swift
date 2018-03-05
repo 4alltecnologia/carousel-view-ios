@@ -75,8 +75,9 @@ public class CarouselView: UIView {
         delegate?.registerCells(collectionView)
         let layout = UPCarouselFlowLayout()
         layout.sideItemAlpha = 1.0
+        layout.sideItemScale = delegate?.sideItemScale?() ?? 0.6
         layout.scrollDirection = .horizontal
-        layout.spacingMode = UPCarouselFlowLayoutSpacingMode.overlap(visibleOffset: 40)
+        layout.spacingMode = UPCarouselFlowLayoutSpacingMode.fixed(spacing: delegate?.sideItemSpacingDistance?() ?? 20)
         layout.itemSize = delegate?.cellSize() ?? CGSize(width: 210, height: 300)
         collectionView.collectionViewLayout = layout
         
