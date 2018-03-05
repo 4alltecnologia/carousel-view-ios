@@ -78,4 +78,18 @@ import Foundation
      - returns: The tint color.
      */
     @objc optional func pageControlIndicatorTintColor() -> UIColor
+    
+    /**
+     The size of the side cells compared to the main cell size. Default scale is 0.6.
+     
+     - returns: The scale of side cells.
+     */
+    @objc optional func sideItemScale() -> CGFloat
+    
+    /**
+     The distance between each cell. Default distance is 20.
+     
+     - returns: The spacing distance.
+     */
+    @objc optional func sideItemSpacingDistance() -> CGFloat
 }
