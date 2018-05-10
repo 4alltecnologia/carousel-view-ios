@@ -127,6 +127,10 @@ public class CarouselView: UIView {
     public func reloadData() {
         collectionView.reloadData()
     }
+    
+    public func setPageControlHidden(_ hidden: Bool) {
+        self.pageControl.isHidden = hidden
+    }
 }
 
 extension CarouselView: UICollectionViewDelegate {
