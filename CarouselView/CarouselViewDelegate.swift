@@ -92,4 +92,6 @@ import Foundation
      - returns: The spacing distance.
      */
     @objc optional func sideItemSpacingDistance() -> CGFloat
+    
+    @objc optional func didChangeCurrentPage(pageIndex: Int)
 }
