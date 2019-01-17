@@ -155,7 +155,7 @@ extension CarouselView: UICollectionViewDelegate {
             self.pageControl.currentPage = self.getCurrentPage()
         }
         
-        delegate?.didChangeCurrentPage?(pageIndx: getCurrentPage())
+        delegate?.didChangeCurrentPage?(pageIndex: getCurrentPage())
     }
 }
 
