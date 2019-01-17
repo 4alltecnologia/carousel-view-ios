@@ -116,7 +116,7 @@ public class CarouselView: UIView {
         }
     }
     
-    func getCurrentPage() -> Int {
+    public func getCurrentPage() -> Int {
         guard let layout = self.collectionView.collectionViewLayout as? UPCarouselFlowLayout else { return 0 }
         let pageSide = (layout.scrollDirection == .horizontal) ? self.pageSize.width : self.pageSize.height
         let offset = (layout.scrollDirection == .horizontal) ? collectionView.contentOffset.x : collectionView.contentOffset.y
