@@ -116,7 +116,7 @@ public class CarouselView: UIView {
         }
     }
     
-    public func getCurrentPage() -> Int {
+    func getCurrentPage() -> Int {
         guard let layout = self.collectionView.collectionViewLayout as? UPCarouselFlowLayout else { return 0 }
         let pageSide = (layout.scrollDirection == .horizontal) ? self.pageSize.width : self.pageSize.height
         let offset = (layout.scrollDirection == .horizontal) ? collectionView.contentOffset.x : collectionView.contentOffset.y
@@ -154,6 +154,8 @@ extension CarouselView: UICollectionViewDelegate {
         } else {
             self.pageControl.currentPage = self.getCurrentPage()
         }
+        
+        delegate?.didChangeCurrentPage?(pageIndx: getCurrentPage())
     }
 }
 
