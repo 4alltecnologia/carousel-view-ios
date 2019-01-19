@@ -31,7 +31,7 @@ public class CarouselView: UIView {
      
      The delegate must adopt the CarouselViewDelegate protocol. The carousel view maintains a weak reference to the delegate object.
      */
-    public var delegate: CarouselViewDelegate?
+    public weak var delegate: CarouselViewDelegate?
     var isInfinite = false
     let infiniteSize = 10000000
     var isInitialScroll = true
