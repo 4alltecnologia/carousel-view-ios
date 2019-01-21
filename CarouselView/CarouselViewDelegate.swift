@@ -8,7 +8,7 @@
 
 import Foundation
 
-@objc public protocol CarouselViewDelegate {
+@objc public protocol CarouselViewDelegate: class {
     
     /**
      Defines the number of rows which will be presented on Carousel View.
