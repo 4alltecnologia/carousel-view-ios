@@ -1,6 +1,6 @@
 //
 //  CarouselViewDelegate.swift
-//  CarouselView
+//  CarouselViewOld
 //
 //  Created by Matheus Alves Alano Dias on 21/02/2018.
 //  Copyright © 2018 4All. All rights reserved.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-@objc public protocol CarouselViewDelegate: class {
+@objc public protocol CarouselViewDelegateOld: class {
     
     /**
      Defines the number of rows which will be presented on Carousel View.

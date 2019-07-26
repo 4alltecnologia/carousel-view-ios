@@ -11,7 +11,7 @@ import CarouselView
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var carouselView: CarouselView! {
+    @IBOutlet weak var carouselView: CarouselViewOld! {
         didSet {
             carouselView.delegate = self
             carouselView.backgroundColor = UIColor.clear
@@ -25,7 +25,7 @@ class ViewController: UIViewController {
 
 }
 
-extension ViewController: CarouselViewDelegate {
+extension ViewController: CarouselViewDelegateOld {
     func carouselView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mycell", for: indexPath) as? CollectionViewCell else {
             return UICollectionViewCell()
