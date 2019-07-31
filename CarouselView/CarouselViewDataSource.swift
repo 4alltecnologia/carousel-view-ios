@@ -10,47 +10,21 @@ import Foundation
 
 public protocol CarouselViewDataSource: AnyObject {
     
+    /// Register your UICollectionViewCell nibs.
+    ///
+    /// - Parameter collectionView: UICollectionView to register cells.
+    func registerCells(_ collectionView: UICollectionView)
+    
     /// Defines the number of items which will be presented on Carousel View.
     ///
     /// - Returns: The number of items.
     func numberOfItems() -> Int
     
-    /// <#Description#>
+    /// This function will call the equivalent function of UICollectionViewDataSource. Use it as if you were using a UICollectionView.
     ///
     /// - Parameters:
-    ///   - carouselView: <#carouselView description#>
-    ///   - row: <#row description#>
-    /// - Returns: <#return value description#>
-    func carouselView(_ carouselView: CarouselView, viewForItemAt row: Int) -> UIView
-    
-    /// The size of the side items compared to the main item.
-    ///
-    /// - Returns:  The scale of side items.
-    func sideItemScale() -> CGFloat
-    
-    /// The distance between each item.
-    ///
-    /// - Returns: The spacing distance.
-    func itemSpacingDistance() -> CGFloat
-    
-    /**
-     Tells the Collection View what size each cell will have.
-     
-     - returns: The size of each cell.
-     */
-    /// Tells the Carousel View what size each item will have.
-    ///
-    /// - Returns: <#return value description#>
-    func itemSize() -> CGSize
-}
-
-extension CarouselViewDataSource {
-    
-    func sideItemScale() -> CGFloat {
-        return 1
-    }
-    
-    func itemSpacing() -> CGFloat {
-        return 20
-    }
+    ///   - collectionView: UICollectionView requesting the cell.
+    ///   - indexPath: IndexPath that speciefies the item's location.
+    /// - Returns: A configured UICollectionViewCell
+    func carouselView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
 }

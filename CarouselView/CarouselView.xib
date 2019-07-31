@@ -12,8 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CarouselView" customModule="CarouselView" customModuleProvider="target">
             <connections>
-                <outlet property="collectionView" destination="ECj-ph-j8c" id="7eg-fO-rTI"/>
-                <outlet property="pageControl" destination="yvF-Zw-Qar" id="ezs-ec-jCt"/>
+                <outlet property="collectionView" destination="ECj-ph-j8c" id="zgr-Pq-J3S"/>
+                <outlet property="pageControl" destination="yvF-Zw-Qar" id="z3x-3Z-LoG"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
