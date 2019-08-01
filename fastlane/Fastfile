@@ -1,0 +1,62 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+default_platform(:ios)
+
+platform :ios do
+
+  desc "Build the project"
+  lane :build do
+    xcodebuild(scheme: "CarouselView")
+  end
+
+  desc "Increment app version number, add a tag, and push to the homolog branch."
+  lane :bumpAndTag do |options|
+
+    # Ensuring that there isn't any uncommited changes
+    ensure_git_status_clean
+
+    # Checking out the branch in which we will bump the version
+    sh "git fetch"
+    sh "git checkout develop"
+    sh "git pull"
+
+    # Incrementing version in all wanted targets, commiting and pushing to remote
+    type = options.fetch(:type, "patch")
+    increment_version_number_in_plist(
+      bump_type: type,
+      target: "CarouselView"
+    )
+
+    new_version = get_version_number(target: "CarouselView")
+    git_add
+    git_commit(path: "CarouselView", message: "Version Bump")
+    push_to_git_remote(
+      local_branch: "develop",
+      remote_branch: "develop",
+    )
+
+    # Checking out destination branch and merging it with bumped branch
+    sh "git checkout master"
+    sh "git merge develop"
+    push_to_git_remote(
+      local_branch: "master",
+      remote_branch: "master",
+    )
+
+    # Adding version tag on merged branch
+    tag_name = "v#{new_version}"
+    add_git_tag(tag: tag_name)
+    sh "git push origin --tags"
+  end
+
+end

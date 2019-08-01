@@ -1,0 +1,10 @@
+stages:
+  - build
+
+# Development #
+build-develop:
+  stage: build
+  script:
+    - bundle exec fastlane build
+  only:
+    - merge_requests
