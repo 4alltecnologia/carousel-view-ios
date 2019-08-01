@@ -15,13 +15,14 @@ class ViewController: UIViewController {
         didSet {
             carouselView.dataSource = self
             carouselView.delegate = self
-            carouselView.isPageControlHidden = true
-            carouselView.animationType = .translation
-            carouselView.itemSize = CGSize(width: 327, height: 345)
-            carouselView.itemSpacingDistance = 11
-            carouselView.sideItemTranslation = 30
             carouselView.backgroundColor = .clear
         }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        carouselView.carouselSetup(true)
     }
 }
 
