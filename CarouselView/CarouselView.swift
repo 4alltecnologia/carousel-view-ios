@@ -108,7 +108,6 @@ public class CarouselView: UIView {
     public override func awakeFromNib() {
         super.awakeFromNib()
         
-        dataSource?.registerCells(collectionView)
         collectionView.collectionViewLayout = carouselLayout
         pageControl.currentPageIndicatorTintColor = currentPageIndicatorTintColor
         pageControl.pageIndicatorTintColor = pageIndicatorTintColor
@@ -121,7 +120,7 @@ public class CarouselView: UIView {
     /// - Parameter animated:  It will scroll animated to first cell if carousel is finite.
     public func carouselSetup(_ animated: Bool) {
         if !isInitialScroll { return }
-        pageControl.numberOfPages = dataSource?.numberOfItems() ?? 0
+        pageControl.numberOfPages = dataSource?.numberOfItems(inCarouselView: self) ?? 0
         scrollToItem(animated)
         isInitialScroll = false
     }
@@ -131,6 +130,14 @@ public class CarouselView: UIView {
         collectionView.reloadData()
     }
     
+    public func register(_ nib: UINib?, forCellWithReuseIdentifier identifier: String) {
+        collectionView.register(nib, forCellWithReuseIdentifier: identifier)
+    }
+    
+    public func dequeueReusableCell(withReuseIdentifier identifier: String, for indexPath: IndexPath) -> CarouselViewCell? {
+        return collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? CarouselViewCell
+    }
+    
     private func scrollToItem(_ animated: Bool) {
         if isInfinite {
             collectionView.layoutIfNeeded()
@@ -138,7 +145,7 @@ public class CarouselView: UIView {
             collectionView.scrollToItem(at: midIndexPath, at: .centeredHorizontally, animated: false)
             pageControl.currentPage = 0
         } else {
-            if let numOfItems = dataSource?.numberOfItems(), numOfItems > 0 {
+            if let numOfItems = dataSource?.numberOfItems(inCarouselView: self), numOfItems > 0 {
                 let indexPath = IndexPath(row: (firstCellIndex < numOfItems ? firstCellIndex : 0), section: 0)
                 collectionView.layoutIfNeeded()
                 collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: animated)
@@ -158,20 +165,20 @@ public class CarouselView: UIView {
 // MARK: - UICollectionViewDataSource
 extension CarouselView: UICollectionViewDataSource {
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataSource?.numberOfItems() ?? 0
+        return dataSource?.numberOfItems(inCarouselView: self) ?? 0
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return dataSource?.carouselView(collectionView, cellForItemAt: indexPath) ?? UICollectionViewCell()
+        return dataSource?.carouselView(self, cellForItemAt: indexPath) ?? UICollectionViewCell()
     }
 }
 
 // MARK: - UICollectionViewDelegate
 extension CarouselView: UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let index = IndexPath(row: indexPath.row % (dataSource?.numberOfItems() ?? 0), section: 0)
+        let index = IndexPath(row: indexPath.row % (dataSource?.numberOfItems(inCarouselView: self) ?? 0), section: 0)
         if index.row != self.getCurrentPage() { return }
-        delegate?.carouselView(collectionView, didSelectItemAt: indexPath.row)
+        delegate?.carouselView(self, didSelectItemAt: indexPath.row)
     }
     
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
@@ -180,7 +187,7 @@ extension CarouselView: UICollectionViewDelegate {
                 collectionView.visibleCells.forEach({ (col) in
                     if (col.center.x - collectionView.contentOffset.x) == center.x {
                         if let index = collectionView.indexPath(for: col) {
-                            pageControl.currentPage = index.row % (dataSource?.numberOfItems() ?? 0)
+                            pageControl.currentPage = index.row % (dataSource?.numberOfItems(inCarouselView: self) ?? 0)
                         }
                     }
                 })

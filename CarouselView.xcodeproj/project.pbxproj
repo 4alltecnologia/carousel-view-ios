@@ -12,6 +12,7 @@
 		02092D1C22EB796D0066ED7B /* CarouselViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02092D1B22EB796D0066ED7B /* CarouselViewDataSource.swift */; };
 		02EFC9F222F05CC300193E6B /* CarouselFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EFC9F122F05CC300193E6B /* CarouselFlowLayout.swift */; };
 		02EFC9F622F1B80700193E6B /* CarouselViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EFC9F522F1B80700193E6B /* CarouselViewDelegate.swift */; };
+		122FCBF423073C65007B5A47 /* CarouselViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122FCBF323073C65007B5A47 /* CarouselViewCell.swift */; };
 		DC4F908D203DA2D90053D9C7 /* CarouselView.h in Headers */ = {isa = PBXBuildFile; fileRef = DC4F908B203DA2D90053D9C7 /* CarouselView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC4F90A0203DB1870053D9C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4F909F203DB1870053D9C7 /* AppDelegate.swift */; };
 		DC4F90A2203DB1870053D9C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4F90A1203DB1870053D9C7 /* ViewController.swift */; };
@@ -54,6 +55,7 @@
 		02092D1B22EB796D0066ED7B /* CarouselViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselViewDataSource.swift; sourceTree = "<group>"; };
 		02EFC9F122F05CC300193E6B /* CarouselFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselFlowLayout.swift; sourceTree = "<group>"; };
 		02EFC9F522F1B80700193E6B /* CarouselViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselViewDelegate.swift; sourceTree = "<group>"; };
+		122FCBF323073C65007B5A47 /* CarouselViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselViewCell.swift; sourceTree = "<group>"; };
 		DC4F9088203DA2D90053D9C7 /* CarouselView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CarouselView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC4F908B203DA2D90053D9C7 /* CarouselView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CarouselView.h; sourceTree = "<group>"; };
 		DC4F908C203DA2D90053D9C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				DC4F908C203DA2D90053D9C7 /* Info.plist */,
 				02092D1722EB74520066ED7B /* CarouselView.swift */,
 				02092D1922EB745F0066ED7B /* CarouselView.xib */,
+				122FCBF323073C65007B5A47 /* CarouselViewCell.swift */,
 				02092D1B22EB796D0066ED7B /* CarouselViewDataSource.swift */,
 				02EFC9F522F1B80700193E6B /* CarouselViewDelegate.swift */,
 				02EFC9F122F05CC300193E6B /* CarouselFlowLayout.swift */,
@@ -279,6 +282,7 @@
 				02092D1C22EB796D0066ED7B /* CarouselViewDataSource.swift in Sources */,
 				02EFC9F222F05CC300193E6B /* CarouselFlowLayout.swift in Sources */,
 				02EFC9F622F1B80700193E6B /* CarouselViewDelegate.swift in Sources */,
+				122FCBF423073C65007B5A47 /* CarouselViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,12 +12,12 @@ public protocol CarouselViewDelegate: AnyObject {
     
     /// Tells the delegate that the item at the specified index was selected.
     
-    /// The collection view calls this method when the user successfully selects an item in the collection view. It does not call this method when you programmatically set the selection.
+    /// The carousel view calls this method when the user successfully selects an item in the carousel view. It does not call this method when you programmatically set the selection.
     ///
     /// - Parameters:
-    ///   - collectionView: UICollectionView that notifies the selection.
+    ///   - carouselView: CarouselView that notifies the selection.
     ///   - index: Int for the row of the selected item.
-    func carouselView(_ collectionView: UICollectionView, didSelectItemAt index: Int)
+    func carouselView(_ carouselView: CarouselView, didSelectItemAt index: Int)
     
     /// Tells the delegate that the current page did change.
     ///
@@ -27,6 +27,6 @@ public protocol CarouselViewDelegate: AnyObject {
 
 public extension CarouselViewDelegate {
     
-    func carouselView(_ collectionView: UICollectionView, didSelectItemAt index: Int) { }
+    func carouselView(_ carouselView: CarouselView, didSelectItemAt index: Int) { }
     func didChangeCurrentPage(pageIndex: Int) { }
 }

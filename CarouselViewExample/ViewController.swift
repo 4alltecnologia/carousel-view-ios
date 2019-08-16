@@ -13,6 +13,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var carouselView: CarouselView! {
         didSet {
+            carouselView.registerNib(for: CollectionViewCell.self)
             carouselView.dataSource = self
             carouselView.delegate = self
             carouselView.backgroundColor = .clear
@@ -27,28 +28,20 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: CarouselViewDataSource {
-    
-    func numberOfItems() -> Int {
+    func numberOfItems(inCarouselView carouselView: CarouselView) -> Int {
         return 10
     }
     
-    func registerCells(_ collectionView: UICollectionView) {
-        collectionView.register(UINib(nibName: "CollectionViewCell", bundle: Bundle.main), forCellWithReuseIdentifier: "mycell")
-    }
-    
-    func carouselView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mycell", for: indexPath) as? CollectionViewCell else {
-            return UICollectionViewCell()
-        }
-        
-        cell.rowLabel.text = "\(indexPath.row)"
-        return cell
+    func carouselView(_ carouselView: CarouselView, cellForItemAt indexPath: IndexPath) -> CarouselViewCell {
+        let cell: CollectionViewCell? = carouselView.dequeueReusableCell(for: indexPath)
+        cell?.rowLabel.text = "\(indexPath.row)"
+        return cell ?? CarouselViewCell()
     }
 }
 
 extension ViewController: CarouselViewDelegate {
     
-    func carouselView(_ collectionView: UICollectionView, didSelectItemAt index: Int) {
+    func carouselView(_ carouselView: CarouselView, didSelectItemAt index: Int) {
         print("Selected item at \(index)")
     }
 }
