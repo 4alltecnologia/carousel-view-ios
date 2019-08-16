@@ -11,7 +11,6 @@ import Foundation
 public protocol CarouselViewDelegate: AnyObject {
     
     /// Tells the delegate that the item at the specified index was selected.
-    
     /// The carousel view calls this method when the user successfully selects an item in the carousel view. It does not call this method when you programmatically set the selection.
     ///
     /// - Parameters:

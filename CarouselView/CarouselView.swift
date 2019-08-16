@@ -130,10 +130,21 @@ public class CarouselView: UIView {
         collectionView.reloadData()
     }
     
+    /// Register a cell to be used.
+    ///
+    /// - Parameters:
+    ///   - nib: UINib for the cell.
+    ///   - identifier: String for the cell's identifier.
     public func register(_ nib: UINib?, forCellWithReuseIdentifier identifier: String) {
         collectionView.register(nib, forCellWithReuseIdentifier: identifier)
     }
     
+    /// Dequeue reusable cell.
+    ///
+    /// - Parameters:
+    ///   - identifier: String for the cell's identifier.
+    ///   - indexPath: Cell's IndexPath.
+    /// - Returns: CarouselViewCell to be reused.
     public func dequeueReusableCell(withReuseIdentifier identifier: String, for indexPath: IndexPath) -> CarouselViewCell? {
         return collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? CarouselViewCell
     }
