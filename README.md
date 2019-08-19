@@ -79,28 +79,24 @@ With this approach, your initialization would look, for example, like this:
 
 ## CarouselView data source
 
-There are three methods in the `CarouselView`'s data source, all of them are required.
+There are two methods in the `CarouselView`'s data source, both of them are required.
 
 public protocol CarouselViewDataSource: AnyObject {
     
-```
-    /// Register your UICollectionViewCell nibs.
-    ///
-    /// - Parameter collectionView: UICollectionView to register cells.
-    func registerCells(_ collectionView: UICollectionView)
-    
+``` 
     /// Defines the number of items which will be presented on Carousel View.
     ///
+    /// - Parameter carouselView: DataSource's CarouselView
     /// - Returns: The number of items.
-    func numberOfItems() -> Int
+    func numberOfItems(inCarouselView carouselView: CarouselView) -> Int
     
     /// This function will call the equivalent function of UICollectionViewDataSource. Use it as if you were using a UICollectionView.
     ///
     /// - Parameters:
-    ///   - collectionView: UICollectionView requesting the cell.
+    ///   - carouselView: CarouselView requesting the cell.
     ///   - indexPath: IndexPath that speciefies the item's location.
-    /// - Returns: A configured UICollectionViewCell
-    func carouselView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
+    /// - Returns: A configured CarouselViewCell
+    func carouselView(_ carouselView: CarouselView, cellForItemAt indexPath: IndexPath) -> CarouselViewCell
 ```
 
 ## CarouselView delegate
@@ -109,12 +105,12 @@ There are two methods in the `CarouselView`'s delegate, both of them are optiona
 
 ```
     /// Tells the delegate that the item at the specified index was selected.
-    /// The collection view calls this method when the user successfully selects an item in the collection view. It does not call this method when you programmatically set the selection.
+    /// The carousel view calls this method when the user successfully selects an item in the carousel view. It does not call this method when you programmatically set the selection.
     ///
     /// - Parameters:
-    ///   - collectionView: UICollectionView that notifies the selection.
+    ///   - carouselView: CarouselView that notifies the selection.
     ///   - index: Int for the row of the selected item.
-    func carouselView(_ collectionView: UICollectionView, didSelectItemAt index: Int)
+    func carouselView(_ carouselView: CarouselView, didSelectItemAt index: Int)
     
     /// Tells the delegate that the current page did change.
     ///
@@ -138,6 +134,17 @@ You can call this function at the end of your api request or even at `viewDidLay
 
 - `func reloadData()` Reload Carousel View data.
 
+- `func register(_ nib: UINib?, forCellWithReuseIdentifier identifier: String)` Register a cell to be used.
+
+- `func registerNib(for cellClass: CarouselViewCell.Type)` Register a cell to be used. The difference in this method is it uses the Class name to register your cell more easily. *Important: Your `CarouselViewCell` identifier must be the same as you XIB's name for this to work*
+
+- `func dequeueReusableCell(withReuseIdentifier identifier: String, for indexPath: IndexPath) -> CarouselViewCell?` Dequeue reusable cell to be used in an specific Index Path.
+
+- `func dequeueReusableCell<T: CarouselViewCell>(for indexPath: IndexPath) -> T?` Dequeue reusable cell to be used in an specific Index Path. The difference in this method is it uses Generics and the class name to register your cell more easily. *Important: Your `CarouselViewCell` identifier must be the same as you XIB's name for this to work*
+
+## CarouselView reusable cell
+
+When creating a cell for using in the `CarouselView`, you need to inherit from `CarouselViewCell`.
 
 ## CarouselView configuration parameters
 

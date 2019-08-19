@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CarouselView
 
-class CollectionViewCell: UICollectionViewCell {
+class CollectionViewCell: CarouselViewCell {
 
     @IBOutlet weak var imageView: UIImageView! {
         didSet {

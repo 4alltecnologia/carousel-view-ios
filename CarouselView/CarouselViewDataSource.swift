@@ -10,21 +10,17 @@ import Foundation
 
 public protocol CarouselViewDataSource: AnyObject {
     
-    /// Register your UICollectionViewCell nibs.
-    ///
-    /// - Parameter collectionView: UICollectionView to register cells.
-    func registerCells(_ collectionView: UICollectionView)
-    
     /// Defines the number of items which will be presented on Carousel View.
     ///
+    /// - Parameter carouselView: DataSource's CarouselView
     /// - Returns: The number of items.
-    func numberOfItems() -> Int
+    func numberOfItems(inCarouselView carouselView: CarouselView) -> Int
     
     /// This function will call the equivalent function of UICollectionViewDataSource. Use it as if you were using a UICollectionView.
     ///
     /// - Parameters:
-    ///   - collectionView: UICollectionView requesting the cell.
+    ///   - carouselView: CarouselView requesting the cell.
     ///   - indexPath: IndexPath that speciefies the item's location.
-    /// - Returns: A configured UICollectionViewCell
-    func carouselView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
+    /// - Returns: A configured CarouselViewCell
+    func carouselView(_ carouselView: CarouselView, cellForItemAt indexPath: IndexPath) -> CarouselViewCell
 }
