@@ -145,8 +145,8 @@ public class CarouselView: UIView {
     ///   - identifier: String for the cell's identifier.
     ///   - indexPath: Cell's IndexPath.
     /// - Returns: CarouselViewCell to be reused.
-    public func dequeueReusableCell(withReuseIdentifier identifier: String, for indexPath: IndexPath) -> CarouselViewCell? {
-        return collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? CarouselViewCell
+    public func dequeueReusableCell(withReuseIdentifier identifier: String, for index: Int) -> CarouselViewCell? {
+        return collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: IndexPath(row: index, section: 0)) as? CarouselViewCell
     }
     
     private func scrollToItem(_ animated: Bool) {
@@ -180,7 +180,7 @@ extension CarouselView: UICollectionViewDataSource {
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return dataSource?.carouselView(self, cellForItemAt: indexPath) ?? UICollectionViewCell()
+        return dataSource?.carouselView(self, cellForItemAt: indexPath.row) ?? UICollectionViewCell()
     }
 }
 

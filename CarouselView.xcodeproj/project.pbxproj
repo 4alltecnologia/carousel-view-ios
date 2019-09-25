@@ -21,8 +21,8 @@
 		DC4F90AA203DB1870053D9C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC4F90A8203DB1870053D9C7 /* LaunchScreen.storyboard */; };
 		DC4F90BD203DB1F00053D9C7 /* CarouselView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC4F9088203DA2D90053D9C7 /* CarouselView.framework */; };
 		DC4F90BE203DB1F00053D9C7 /* CarouselView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DC4F9088203DA2D90053D9C7 /* CarouselView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DC4F90C4203DB2EC0053D9C7 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4F90C2203DB2EC0053D9C7 /* CollectionViewCell.swift */; };
-		DC4F90C5203DB2EC0053D9C7 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC4F90C3203DB2EC0053D9C7 /* CollectionViewCell.xib */; };
+		DC4F90C4203DB2EC0053D9C7 /* CarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4F90C2203DB2EC0053D9C7 /* CarouselCell.swift */; };
+		DC4F90C5203DB2EC0053D9C7 /* CarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC4F90C3203DB2EC0053D9C7 /* CarouselCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,8 +66,8 @@
 		DC4F90A6203DB1870053D9C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC4F90A9203DB1870053D9C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC4F90AB203DB1870053D9C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DC4F90C2203DB2EC0053D9C7 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
-		DC4F90C3203DB2EC0053D9C7 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		DC4F90C2203DB2EC0053D9C7 /* CarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCell.swift; sourceTree = "<group>"; };
+		DC4F90C3203DB2EC0053D9C7 /* CarouselCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarouselCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,8 +131,8 @@
 				DC4F90A6203DB1870053D9C7 /* Assets.xcassets */,
 				DC4F90A8203DB1870053D9C7 /* LaunchScreen.storyboard */,
 				DC4F90AB203DB1870053D9C7 /* Info.plist */,
-				DC4F90C2203DB2EC0053D9C7 /* CollectionViewCell.swift */,
-				DC4F90C3203DB2EC0053D9C7 /* CollectionViewCell.xib */,
+				DC4F90C2203DB2EC0053D9C7 /* CarouselCell.swift */,
+				DC4F90C3203DB2EC0053D9C7 /* CarouselCell.xib */,
 			);
 			path = CarouselViewExample;
 			sourceTree = "<group>";
@@ -245,7 +245,7 @@
 			files = (
 				DC4F90AA203DB1870053D9C7 /* LaunchScreen.storyboard in Resources */,
 				DC4F90A7203DB1870053D9C7 /* Assets.xcassets in Resources */,
-				DC4F90C5203DB2EC0053D9C7 /* CollectionViewCell.xib in Resources */,
+				DC4F90C5203DB2EC0053D9C7 /* CarouselCell.xib in Resources */,
 				DC4F90A5203DB1870053D9C7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,7 +292,7 @@
 			files = (
 				DC4F90A2203DB1870053D9C7 /* ViewController.swift in Sources */,
 				DC4F90A0203DB1870053D9C7 /* AppDelegate.swift in Sources */,
-				DC4F90C4203DB2EC0053D9C7 /* CollectionViewCell.swift in Sources */,
+				DC4F90C4203DB2EC0053D9C7 /* CarouselCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
