@@ -167,8 +167,6 @@ When creating a cell for using in the `CarouselView`, you need to inherit from `
 - `sideItemTranslation` Translation of the side cell compared to the main cell. Default: 20
   *Obs.: This will only be used if the animation type is `translation`*
 
-- `isInfinite` Boolean indicating wheter the collection has infinite cells. Default: false
-
 - `firstCellIndex` Initial cell index. Default: 0
 
 - `currentPageIndicatorTintColor` Page indicator UIColor for current page. Default: darkGray
