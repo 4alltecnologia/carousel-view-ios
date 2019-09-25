@@ -13,7 +13,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var carouselView: CarouselView! {
         didSet {
-            carouselView.registerNib(for: CollectionViewCell.self)
+            carouselView.registerNib(for: CarouselViewCell.self)
             carouselView.dataSource = self
             carouselView.delegate = self
             carouselView.backgroundColor = .clear
@@ -32,9 +32,9 @@ extension ViewController: CarouselViewDataSource {
         return 10
     }
     
-    func carouselView(_ carouselView: CarouselView, cellForItemAt indexPath: IndexPath) -> CarouselViewCell {
-        let cell: CollectionViewCell? = carouselView.dequeueReusableCell(for: indexPath)
-        cell?.rowLabel.text = "\(indexPath.row)"
+    func carouselView(_ carouselView: CarouselView, cellForItemAt index: Int) -> CarouselViewCell {
+        let cell: CarouselCell? = carouselView.dequeueReusableCell(for: index)
+        cell?.rowLabel.text = "\(index)"
         return cell ?? CarouselViewCell()
     }
 }

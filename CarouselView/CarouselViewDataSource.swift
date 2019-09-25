@@ -20,7 +20,7 @@ public protocol CarouselViewDataSource: AnyObject {
     ///
     /// - Parameters:
     ///   - carouselView: CarouselView requesting the cell.
-    ///   - indexPath: IndexPath that speciefies the item's location.
+    ///   - index: Int that speciefies the item's location.
     /// - Returns: A configured CarouselViewCell
-    func carouselView(_ carouselView: CarouselView, cellForItemAt indexPath: IndexPath) -> CarouselViewCell
+    func carouselView(_ carouselView: CarouselView, cellForItemAt index: Int) -> CarouselViewCell
 }

@@ -1,5 +1,5 @@
 //
-//  CollectionViewCell.swift
+//  CarouselCell.swift
 //  CarouselViewExample
 //
 //  Created by Matheus Alves Alano Dias on 21/02/2018.
@@ -9,7 +9,7 @@
 import UIKit
 import CarouselView
 
-class CollectionViewCell: CarouselViewCell {
+class CarouselCell: CarouselViewCell {
 
     @IBOutlet weak var imageView: UIImageView! {
         didSet {
@@ -23,11 +23,11 @@ class CollectionViewCell: CarouselViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.layer.borderWidth = 1.0
-        self.layer.borderColor = UIColor.green.cgColor
-        self.layer.cornerRadius = 6.0
-        self.clipsToBounds = true
-        self.backgroundColor = UIColor.white
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.green.cgColor
+        layer.cornerRadius = 6
+        clipsToBounds = true
+        backgroundColor = .white
     }
 
 }

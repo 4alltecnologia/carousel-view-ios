@@ -28,7 +28,7 @@ public extension CarouselView {
         register(cellClass.nib, forCellWithReuseIdentifier: cellClass.reuseId)
     }
     
-    func dequeueReusableCell<T: CarouselViewCell>(for indexPath: IndexPath) -> T? {
-        return dequeueReusableCell(withReuseIdentifier: T.reuseId, for: indexPath) as? T
+    func dequeueReusableCell<T: CarouselViewCell>(for index: Int) -> T? {
+        return dequeueReusableCell(withReuseIdentifier: T.reuseId, for: index) as? T
     }
 }

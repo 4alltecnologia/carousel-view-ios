@@ -1,5 +1,5 @@
 //
-//  TranslationCarouselFlowLayout.swift
+//  CarouselFlowLayout.swift
 //  CarouselView
 //
 //  Created by Luca Saldanha Schifino on 30/07/19.
