@@ -29,7 +29,6 @@ public class CarouselView: UIView {
     
     // MARK: - Variables
     private var viewContent: UIView!
-    private let infiniteSize = 10000000
     private var isInitialScroll = true
     /// Carousel content's data source protocol.
     public weak var dataSource: CarouselViewDataSource?
@@ -45,8 +44,6 @@ public class CarouselView: UIView {
     @IBInspectable public var sideItemScale: CGFloat = 0.6
     /// Translation of the side cell compared to the main cell. Default: 20
     @IBInspectable public var sideItemTranslation: CGFloat = 20
-    /// Boolean indicating wheter the collection has infinite cell. Default: false
-    @IBInspectable public var isInfinite: Bool = false
     /// Initial cell index. Default: 0
     @IBInspectable public var firstCellIndex: Int = 0
     /// Page indicator UIColor for current page. Default: darkGray
@@ -150,18 +147,11 @@ public class CarouselView: UIView {
     }
     
     private func scrollToItem(_ animated: Bool) {
-        if isInfinite {
+        if let numOfItems = dataSource?.numberOfItems(inCarouselView: self), numOfItems > 0 {
+            let indexPath = IndexPath(row: (firstCellIndex < numOfItems ? firstCellIndex : 0), section: 0)
             collectionView.layoutIfNeeded()
-            let midIndexPath = IndexPath(row: infiniteSize / 2, section: 0)
-            collectionView.scrollToItem(at: midIndexPath, at: .centeredHorizontally, animated: false)
-            pageControl.currentPage = 0
-        } else {
-            if let numOfItems = dataSource?.numberOfItems(inCarouselView: self), numOfItems > 0 {
-                let indexPath = IndexPath(row: (firstCellIndex < numOfItems ? firstCellIndex : 0), section: 0)
-                collectionView.layoutIfNeeded()
-                collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: animated)
-                pageControl.currentPage = indexPath.row
-            }
+            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: animated)
+            pageControl.currentPage = indexPath.row
         }
     }
     
@@ -193,19 +183,7 @@ extension CarouselView: UICollectionViewDelegate {
     }
     
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        if isInfinite {
-            if let collectionView = scrollView as? UICollectionView {
-                collectionView.visibleCells.forEach({ (col) in
-                    if (col.center.x - collectionView.contentOffset.x) == center.x {
-                        if let index = collectionView.indexPath(for: col) {
-                            pageControl.currentPage = index.row % (dataSource?.numberOfItems(inCarouselView: self) ?? 0)
-                        }
-                    }
-                })
-            }
-        } else {
-            pageControl.currentPage = getCurrentPage()
-        }
+        pageControl.currentPage = getCurrentPage()
         delegate?.didChangeCurrentPage(pageIndex: getCurrentPage())
     }
 }
